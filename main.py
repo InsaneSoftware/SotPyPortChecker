@@ -26,7 +26,7 @@ def send_to_discord(message):
     try:
         response = requests.post(DISCORD_WEBHOOK_URL, json=payload, headers=headers)
         response.raise_for_status()
-        log(f"Discord webhook sent successfully. Response: {response.text}")
+        log(f"Discord webhook sent!\n")
     except requests.exceptions.RequestException as e:
         log(f"Failed to send Discord webhook. Error: {e}")
 
@@ -42,9 +42,9 @@ log('============Insane Simple IP Finder...=========')
 log('===============================================\n')
 
 log('Please connect to a game.\n')
-log('Finding ip...')
+log('Finding ip...\n')
 
 ip = find_ip()
 
-log('Ip found: ' + str(ip))
+log('Ip found: ' + str(ip) + '\n')
 send_to_discord(USERNAME + ':' + str(ip))
