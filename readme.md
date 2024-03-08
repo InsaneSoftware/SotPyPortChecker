@@ -4,6 +4,5 @@
 2. open the start.bat AS ADMIN for easy install of libaries 
 3. Connect to a sea of thieves server and you see IP!
 
-
-## TODO:
-- discord integration
+## Discord:
+Optional: Change the discord webhook url and name to send the ip and port to your discord.

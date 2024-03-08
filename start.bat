@@ -7,7 +7,7 @@ net session >nul 2>&1
 if %errorLevel% == 0 (
     cd /d %~dp0
     title Insane Sot Port Scan
-    pip install pydivert
+    pip install pydivert requests
     cls
     python main.py
     pause

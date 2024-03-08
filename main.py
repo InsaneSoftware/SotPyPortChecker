@@ -1,5 +1,9 @@
 import pydivert
 import datetime
+import requests
+
+USERNAME = "Insane"
+DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1206683441676947516/WKY_9yPQ9sqstGRjGCl8IakzXesY8BFLF-I0ah7IxJiqxDQil38-DXY89CR_FgOcYHCP"
 
 
 def find_ip():
@@ -15,6 +19,18 @@ def find_ip():
     return ip
 
 
+def send_to_discord(message):
+    payload = {"content": message}
+    headers = {"Content-Type": "application/json"}
+
+    try:
+        response = requests.post(DISCORD_WEBHOOK_URL, json=payload, headers=headers)
+        response.raise_for_status()
+        log(f"Discord webhook sent successfully. Response: {response.text}")
+    except requests.exceptions.RequestException as e:
+        log(f"Failed to send Discord webhook. Error: {e}")
+
+
 def log(text):
     timestamp = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     log_message = f"{timestamp} - {text}"
@@ -25,8 +41,10 @@ log('===============================================')
 log('============Insane Simple IP Finder...=========')
 log('===============================================\n')
 
-log('Please connect to a game... Finding ip...')
+log('Please connect to a game.\n')
+log('Finding ip...')
 
 ip = find_ip()
 
 log('Ip found: ' + str(ip))
+send_to_discord(USERNAME + ':' + str(ip))
