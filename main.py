@@ -3,7 +3,7 @@ import datetime
 import requests
 
 USERNAME = "Insane"
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1206683441676947516/WKY_9yPQ9sqstGRjGCl8IakzXesY8BFLF-I0ah7IxJiqxDQil38-DXY89CR_FgOcYHCP"
+DISCORD_WEBHOOK_URL = "YOUR_WEBHOOK"
 
 
 def find_ip():
